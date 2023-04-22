@@ -30,4 +30,7 @@ urlpatterns = [
     path('board/',include('interflow.urls')),
     # 配置媒体资源的路由信息
     re_path('media/(?P<path>.*)',serve,{'document_root':settings.MEDIA_ROOT},name = 'media'),
+    re_path('static/(?P<path>.*)', serve, {'document_root': settings.STATIC_ROOT}, name='static'),
+    # 设置编辑器的路由信息
+    path('ckeditor/',include('ckeditor_uploader.urls')),
 ]

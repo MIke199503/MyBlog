@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from account.models import MyUser
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 # Create your models here.
@@ -20,7 +21,7 @@ class ArticleTag(models.Model):
 class ArticleInfo(models.Model):
     author = models.ForeignKey(MyUser, on_delete=models.CASCADE, verbose_name='用户')
     title = models.CharField('标题', max_length=200)
-    content = models.TextField('内容')
+    content = RichTextUploadingField('内容')
     articlephoto = models.ImageField('文章图片', blank=True, upload_to='images/article/')
     reading = models.IntegerField('阅读量', default=0)
     liking = models.IntegerField('点赞量', default=0)
