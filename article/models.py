@@ -21,7 +21,7 @@ class ArticleInfo(models.Model):
     author = models.ForeignKey(MyUser, on_delete=models.CASCADE, verbose_name='用户')
     title = models.CharField('标题', max_length=200)
     content = models.TextField('内容')
-    articlePhoto = models.ImageField('文章图片', blank=True, upload_to='images/article/')
+    articlephoto = models.ImageField('文章图片', blank=True, upload_to='images/article/')
     reading = models.IntegerField('阅读量', default=0)
     liking = models.IntegerField('点赞量', default=0)
     created = models.DateTimeField('创建时间', default=timezone.now)
